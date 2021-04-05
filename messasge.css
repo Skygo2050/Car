@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;}
+
+body{
+    background-color: rgb(175, 233, 233);
+}
+
+h1{
+    font-size: 90px;
+}
+
+/*error page*/
+#error{
+    margin-top: 100px;
+    display: block;
+    width: 1200px;
+    background-color: rgb(243, 201, 201);
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#error h1{
+    margin-top: 50px;
+    color: darkred;
+    font-size: 80px;
+}
+#error h4{
+    font-size: 40px;
+    border-radius: 10px;
+    color: darkred;
+}
+
+#error p{
+    font-size: 30px;
+    border-radius: 10px;
+    color: black;
+}
+
+
+#error button{
+    font-size: 32px;
+    width: 120px;
+    height: 70px;
+    background-color: darkred;
+    margin-bottom: 50px;
+}
+
+
+/* success page*/
+    #success{
+        margin-top: 100px;
+        display: block;
+        width: 1200px;
+        background-color: rgb(171, 231, 171);
+        border: 2px solid black;
+        border-radius: 25px;
+    }
+    
+    #success h1{
+        margin-top: 50px;
+        color: darkgreen;
+        font-size: 80px;
+    }
+    #success h4{
+        font-size: 40px;
+        border-radius: 10px;
+        color: darkgreen;
+    }
+    
+    #success p{
+        font-size: 30px;
+        border-radius: 10px;
+        color: black;
+    }
+    
+    
+    #success button{
+        font-size: 32px;
+        width: 120px;
+        height: 70px;
+        background-color: darkgreen;
+        margin-bottom: 50px;
+    }
+
+
+

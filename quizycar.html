@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="quizycar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <title> QuizyCar </title>
+
+</head>
+
+<body>
+  
+ <div class="Question_form hide">
+        <div class="Question ">
+            <h2 class="q"> question will come here</h2>
+            <div id="timerArea"></div>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="ans1" class="answer">
+                    <label for="ans1" id="option1">Answer option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans2" class="answer">
+                    <label for="ans2" id="option2">Answer option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans3" class="answer">
+                    <label for="ans3" id="option3">Answer option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans4" class="answer">
+                    <label for="ans4" id="option4">Answer option</label>
+                </li>
+            </ul>
+            <button id="submit" type> Submit</button>
+        </div>
+    </div> 
+    <div class="timer hide"> 
+
+
+    </div> 
+    <div class="explanationbox hide">
+
+        <div class="explanation" role="alert">
+            <h4 class="status"></h4>
+            <p class="status1"></p>
+            <hr>
+            <hr>
+            <span class="Explain ">Explanation: </span><br><br>
+            <p class="Explaining"></p>
+            <button class="btn1">OK</button>
+        </div>
+
+    </div>
+    <div class="SelectQuestionpage">
+        <h4 class="heading">Welcome To QuizyCar<img src="logo.JPG" width="auto" height="55" alt="logo"
+                style="border-radius: 1.6rem;"></h4>
+        <div class="SelectQuestion">
+            <h3 class="select1"> &nbsp; &nbsp Select Number Of Question You Want To Attempt</h3>
+            <p class="select2">There are 10 levels as per number of question selected.<br> 1st level Represent ⭐ ,2nd
+                level Represent ⭐⭐...so on <br>Try to get Maximum Number Of Star.....😎😀😀 👍 </p>
+                <label class="TARGET" for="exampleFormControlSelect1">SELECT TARGET 😀😀</label>
+                <select id="Target" class="form-control" id="exampleFormControlSelect1">
+                    <option id="5" class="TARGET">5 <h4>&nbsp; &nbsp;⭐ Level &nbsp; &nbsp; &nbsp;🙂</h4>
+                    </option>
+                    <option id="10" class="TARGET">10 <h4>&nbsp; &nbsp;⭐⭐ Level &nbsp;&nbsp; &nbsp;😊</h4>
+                    </option>
+                    <option id="15" class="TARGET">15<h4>&nbsp; &nbsp;⭐⭐⭐ Level &nbsp; &nbsp;&nbsp;😁</h4>
+                    </option>
+                    <option id="20" class="TARGET">20<h4>&nbsp; &nbsp;⭐⭐⭐⭐ Level &nbsp;&nbsp;&nbsp;🙂</h4>
+                    </option>
+                    <option id="25" class="TARGET">25<h4>&nbsp; &nbsp;⭐⭐⭐⭐⭐ Level &nbsp; &nbsp;&nbsp; 🤗</h4>
+                    </option>
+                    <option id="30" class="TARGET">30<h4>&nbsp; &nbsp;⭐⭐⭐⭐⭐⭐ Level &nbsp;&nbsp; &nbsp;😄</h4>
+                    </option>
+                    <option id="35" class="TARGET">35<h4>&nbsp; &nbsp;⭐⭐⭐⭐⭐⭐⭐ Level &nbsp;&nbsp;&nbsp; 😃</h4>
+                    </option>
+                    <option id="40" class="TARGET">40<h4>&nbsp; &nbsp;⭐⭐⭐⭐⭐⭐⭐⭐ Level &nbsp;&nbsp;&nbsp;😃😃</h4>
+                    </option>
+                    <option id="45" class="TARGET">45<h4>&nbsp; &nbsp;⭐⭐⭐⭐⭐⭐⭐⭐⭐ Level &nbsp;&nbsp;&nbsp;🙂😃😃</h4>
+                    </option>
+                    <option id="50" class="TARGET">50<h4>&nbsp; &nbsp;⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ Level&nbsp;&nbsp;&nbsp; 🙂😃😃😃</h4>
+                    </option>
+
+
+                </select>
+                <button class="btn3" onclick="getTarget()">OK</button>
+            </div>
+
+        </div>
+    </div>
+     <div class="CarGame hide">
+
+            <div class="Score hide">
+
+            </div>
+
+             <div class="StartScreen ">
+                <p>Start Game by clicking Here<br>Arrow Keys to move<br>If you hit another car you will loose</p>
+                <button onclick='Reset()' class="startbutton">START</button>
+            </div> 
+            <div class="againstartscreen hide">
+                <p>Start Game by clicking Here<br>Arrow Keys to move<br>If you hit another car you will loose</p>
+                <button onclick='Reset()' class="btn2">START</button>
+            </div>
+            <div class="againstartscreen1 hide">
+                <p>Start Game by clicking Here<br>Arrow Keys to move<br>If you hit another car you will loose</p>
+                <button class="startbutton">CONTINUE</button>
+            </div>
+
+            <div class="GameArea">
+
+            </div>
+
+
+        </div> 
+
+    <div class="showResultpage hide"> 
+        <h4 class="heading"> Your QuizyCar  🚗 Result &nbsp;<img src="logo.JPG" width="auto" height="55" alt="logo"
+            style="border-radius: 1.6rem;"></h4>
+            <h5 class="score1">  "Congratulations!!!  🎉🎉🎊😀😀  You Achieved your Target Successfully" <br>&nbsp;&nbsp; Well done!!!👍 </h5>
+         
+            <P class="score2">Now You are the part of Quizy Car😀😀 ---(Take a Screen Shot of Your Score Card and Share With Your Friends 👦👩‍🦰 )😃    Invite them Too to Quizy Car</P>
+
+            <div class="box">
+
+            
+            <div class="showResult">
+<table class="table table-bordered ">
+    <thead>
+      <tr>
+        <th scope="col">NAME:</th>
+        <th   id="showname"   scope="col"> </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">GAME SCORE:</th>
+        <th  id="Game_score" class="scoreS" scope="row">&nbsp;&nbsp;&nbsp; </th>
+        
+      </tr>
+      <tr>
+        <th scope="row">QUIZ MARKS:</th>
+        <th id="quiz_marks" class="marksS"  scope="row">&nbsp;&nbsp;&nbsp;Jacob</th>
+
+      </tr>
+      <tr>
+        <th scope="row">TIMING:</th>
+        <th   id="TIMING" class="timingS" scope="row">&nbsp;&nbsp;&nbsp;Larry the Bird</th>
+      </tr>
+
+      <tr>
+        <th scope="row">FeedBack:</th>
+        <th  id="FeedBack" class="feedbackS" scope="row"> &nbsp; &nbsp;&nbsp;Jacob</th> 
+      </tr>
+      <tr>
+        <th scope="row">Player</th>
+        <th id="Player" class="playerS"    scope="row"> </th>
+        
+      </tr>
+    </tbody>
+  </table>
+   
+</div>
+<center>
+    <a href="index.html"><button type="button"    class="btnS btn-primary btn-lg">HOME</button></a>
+  </center>
+        </div>
+        
+        </div> 
+        
+
+        <script>
+
+            /////////////////////////////////////////////////////////
+            const scores = document.querySelector('.Score');
+            const startscreen = document.querySelector('.StartScreen');
+            const gamearea = document.querySelector('.GameArea');
+            const CarGame = document.querySelector('.CarGame');
+            const Question_form = document.querySelector('.Question_form');
+            const startbutton = document.querySelector('.startbutton');
+            const explanationbox = document.querySelector('.explanationbox');
+            const startTimer = document.querySelector('.timer');
+            const Explaining = document.querySelector('.Explaining');
+            const status = document.querySelector('.status');
+            const status1 = document.querySelector('.status1');
+            const Explain = document.querySelector('.Explain');
+            const againstartscreen = document.querySelector('.againstartscreen');
+            const againstartscreen1 = document.querySelector('.againstartscreen1');
+            const btn1 = document.querySelector('.btn1');
+            const question = document.querySelector(".q");
+            const option1 = document.querySelector("#option1");
+            const option2 = document.querySelector("#option2");
+            const option3 = document.querySelector("#option3");
+            const option4 = document.querySelector("#option4");
+            const submit = document.querySelector("#submit");
+            const timerArea = document.querySelector("#timerArea");
+            const Game_score = document.querySelector("#Game_score");
+            const quiz_marks = document.querySelector("#quiz_marks");
+            const TIMING = document.querySelector("#TIMING");
+            const FeedBack = document.querySelector("#FeedBack");
+            const PlayerF = document.querySelector("#Player");
+            const answers = document.querySelectorAll(".answer");
+            const score1 = document.querySelectorAll(".score1");
+            const showname = document.querySelector("#showname");
+            const SelectQuestionpage = document.querySelector(".SelectQuestionpage");
+            const showResultpage = document.querySelector(".showResultpage");
+            const getname = localStorage.getItem("textvalue");
+            let player = { speed: 5, score: 0 };
+            let ps;
+            let s;
+            let highest = 0;
+            let timer = 30;
+            let clock = 00;
+            let runningTimer;
+            let timeref;
+            let minutes;
+            let seconds;
+            let request;
+            let SZ;
+            let T;
+            let o;
+            let mark = 0;
+            
+
+            startscreen.addEventListener('click', start);
+
+
+
+            let keys = { ArrowUp: false, ArrowDown: false, ArrowRight: false, ArrowLeft: false };
+
+            document.addEventListener('keydown', keyDown);
+            document.addEventListener('keyup', keyUp);
+            function keyDown(ev) {
+                ev.preventDefault();
+                keys[ev.key] = true;
+
+
+            }
+            ////////////////////
+            function getTarget() {
+            
+                SelectQuestionpage.classList.add('hide');
+                let Target = document.querySelector("#Target");
+                let a = Target.options[Target.selectedIndex];
+                if (a.id == 5) {
+                    T = 5;
+                    o = T;
+
+                } else if (a.id == 10) {
+                    T = 10;
+                    o = T;
+
+                }else if (a.id == 15) {
+                    T = 15;
+                    o = T;
+
+                } else if (a.id == 20) {
+                    T = 20;
+                    o = T;
+
+                }
+
+                else if (a.id == 25) {
+                    T = 25;
+                    o = T;
+
+                }
+
+                else if (a.id == 30) {
+                    T = 30;
+                    o = T;
+
+                }
+                else if (a.id == 35) {
+                    T = 35;
+                    o = T;
+
+                }
+                else if (a.id == 40) {
+                    T = 40;
+                    o = T;
+
+                }
+
+                else if (a.id == 45) {
+                    T = 45;
+                    o = T;
+
+                }
+
+                else if (a.id == 50) {
+                    T = 50;
+                    o = T;
+
+                }
+                else {
+                    alert("Please select Any level &nbsp 😀😀");
+
+                }
+
+                
+                CarGame.classList.remove('hide');
+                
+
+            }
+            ///////////////////////////////////////
+
+function playerB(){
+
+                let Target = document.querySelector("#Target");
+                let a = Target.options[Target.selectedIndex];
+                if (a.id == 5) {
+                  PlayerF.innerHTML="&nbsp;&nbsp;1 ⭐ Player";
+
+                } else if (a.id == 10) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;2 ⭐ Player";
+
+                }else if (a.id == 15) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;3 ⭐ Player";
+
+                } else if (a.id == 20) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;4 ⭐ Player";
+
+                }
+
+                else if (a.id == 25) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;5 ⭐ Player";
+
+                }
+
+                else if (a.id == 30) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;6 ⭐ Player";
+
+                }
+                else if (a.id == 35) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;7 ⭐ Player";
+
+                }
+                else if (a.id == 40) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;8 ⭐ Player";
+
+                }
+
+                else if (a.id == 45) {
+                    PlayerF.innerHTML=" &nbsp;&nbsp;9 ⭐ Player"; 
+
+                }
+
+                else if (a.id == 50) {
+                    PlayerF.innerHTML="&nbsp;&nbsp;10 ⭐ Player";
+
+                }
+                else {
+                   
+                    PlayerF.innerHTML="&nbsp;&nbsp;Not Qualified";
+
+                }
+
+
+
+
+    
+}
+
+//////////////////////////////////////////////
+            function keyUp(ev) {
+                ev.preventDefault();
+                keys[ev.key] = false;
+                console.log(ev.key);
+            }
+
+            /////////////////////////////////////////////
+            function isCollide(a, b) {
+                aRect = a.getBoundingClientRect(); //to measure all dimension of object
+                bRect = b.getBoundingClientRect();
+
+                return !((aRect.bottom < bRect.top) || (aRect.top > bRect.bottom) || (aRect.right < bRect.left) || (aRect.left > bRect.right));
+            }
+
+            //////////////////////////////////////////////
+            function moveLines() {
+                let lines = document.querySelectorAll('.lines');
+                lines.forEach(function (item) {
+                    if (item.y >= 800) {
+                        item.y -= 800;
+                    }
+                    item.y += player.speed;
+                    item.style.top = item.y + 'px';
+
+                })
+            }
+
+
+
+            ///////////////////////////////////////
+
+            function resumeGame() {
+                // startscreen.classList.remove('hide');
+                gamearea.classList.remove('hide');
+                scores.classList.remove('hide');
+                //  Question_form.classList.add('hide');
+
+                // startscreen.addEventListener('click', againstart);
+
+                window.cancelAnimationFrame(request);
+                let car = document.querySelector('.car');
+                let road = gamearea.getBoundingClientRect();// to measure dimension of road
+
+                if (player.start) {
+
+                    moveLines();
+                    moveCar(car);
+                    carshCar(car);
+                    if (keys.ArrowUp && player.y > (road.top + 70)) {
+                        player.y -= player.speed; //here speed means car will move by speed number distance
+                    }
+                    if (keys.ArrowDown && player.y < (road.bottom - 110)) {
+                        player.y += player.speed;
+                    }
+                    if (keys.ArrowLeft && player.x > 0) {
+                        player.x -= player.speed;
+                    }
+                    if (keys.ArrowRight && player.x < (road.width - 70)) {  //50 = width of car
+                        player.x += player.speed;
+                    }
+
+                    car.style.top = player.y + 'px'; //to attach px behind number eg: 44px
+                    car.style.left = player.x + 'px';//to attach px behind number
+
+                    window.requestAnimationFrame(resumeGame);//create loop for road animation
+
+                    if (SZ == 0) {
+                        s = SZ;
+                        SZ++;
+                        highest = 0;
+                    }
+
+                    s++;
+
+
+                    let pt = s - 1;
+
+                    if (pt >= highest) {
+                        highest = s;
+                    }
+                    scores.innerHTML = "Your Score:" + pt + "<br><br>" + "Highest Score:" + highest;
+
+
+
+
+
+
+
+                }
+            }
+            ///////////////////////////////////////////////////
+            function endGame() {
+
+                player.start = false;
+
+                Question_form.classList.add('hide');
+                explanationbox.classList.remove('hide');
+                Explaining.innerHTML = questionList.explanation;
+                status.innerHTML = " OPPS!!! 👎  &nbsp &nbsp &nbsp &nbsp &nbsp  😮😮🖤🖤  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp WRONG!!!".fontcolor("red");
+                status1.innerHTML = " No worry........You can do............ All THE BEST 👍👍👍".fontcolor("#A702F5").fontsize(5) + "<br>  keep learning and enjoy the Game😀" + " <br> Restart again......... "
+                btn1.onclick = function () {
+                    explanationbox.classList.add('hide');
+                    CarGame.classList.remove('hide');
+                    gamearea.classList.remove('hide');
+                    showResult();
+                    againstartscreen.classList.remove('hide');
+                    againstartscreen.innerHTML = "You lose <br> Your Final Score is " + s + "<br> Press here to restart the Game<br><button class='btn' onclick='againstart()'>Restart</button>";
+                }
+
+            }
+
+            ///////////////////////////////////////////
+
+            const callTimer = () => {
+
+                 timeref = setInterval(() => {
+
+                    minutes = Math.floor(clock / 60);
+                    seconds = clock % 60;
+                    startTimer.innerHTML = " ⏲ : &nbsp " + minutes + ":" + seconds;
+                    clock++;
+                }, 1000)
+
+            }
+
+///////////////////////////////////
+            function check() {
+                let m = minutes;
+                let p = seconds;
+                if ((m == 1) && ((m + p) >= 1)) {
+                    return timer = 26;
+                } else if ((m == 2) && ((m + p) >= 2)) {
+
+                    return timer = 22;
+                } else if ((m == 3) && ((m + p) >= 3)) {
+
+                    return timer = 18;
+                } else if ((m == 4) && ((m + p) >= 4)) {
+                    return timer = 14;
+
+                } else if ((m == 5) && ((m + p) >= 5)) {
+
+                    return timer = 10;
+                }else if(m>=6){
+                    return timer = 10;
+                }
+                return timer = 30;
+            }
+            //////////////////////////////////
+            function performance() {
+
+
+                //     if((d=!1)&&((c+d)==1)){
+                //  alert("Hello Aakash good work");
+                // return 3;
+                //     }if((d=!2)&&((c+d)==2)){
+                //         alert("Hello Aakash very good work");
+                //         return 0; 
+                //     }else{
+                //         return 1;       
+                //     }
+
+
+            }
+            // if(c==10){
+            // alert("Hello Aakash good work");
+
+            //    }
+            //////////////////////////////////////////////
+
+            function moveCar(car) {
+                let other = document.querySelectorAll('.other');
+                other.forEach(function (item) {
+                    if (item.y >= 750) {
+                        item.y = -415;
+                        item.style.left = Math.floor(Math.random() * 350) + 'px';
+                    }
+                    item.y += player.speed;
+                    item.style.top = item.y + 'px';
+
+                })
+            }
+
+            ////////////////////////////
+            function carshCar(car) {
+                let other = document.querySelectorAll('.other');
+
+                for (var x = 0, len = other.length; x < len; x++) {
+
+                    if (isCollide(car, other[x])) {
+
+                       // for (let u = 0; u < T; u++) {
+                           if(T!=0){
+                            loadquestion();
+                            T--;
+                           }else{
+                               console.log("sab sahi hai");
+                               endGame();
+                           }
+                           //T--;
+                        break;
+
+                       // }break;
+
+                    }
+
+                }
+            }
+
+
+
+            /////////////////////////////////////////////////////
+            function againmoveCar(car) {
+                let other = document.querySelectorAll('.other');
+                other.forEach(function (item) {
+                    if (isCollide(car, item)) {
+                        console.log('HIT');
+                        loadquestion();
+                        //endGame();
+                        //pauseGame();
+                    }
+                    if (item.y >= 750) {
+                        item.y = -415;
+                        item.style.left = Math.floor(Math.random() * 350) + 'px';
+                    }
+                    item.y += player.speed;
+                    item.style.top = item.y + 'px';
+
+                })
+            }
+
+            ////////////////////////////////////////////////
+            function gamePlay() {
+
+                let car = document.querySelector('.car');
+                let road = gamearea.getBoundingClientRect();// to measure dimension of road
+
+                if (player.start) {
+
+                    moveLines();
+                    moveCar(car);
+                    carshCar(car);
+
+
+                    if (keys.ArrowUp && player.y > (road.top + 70)) {
+                        player.y -= player.speed; //here speed means car will move by speed number distance
+                    }
+                    if (keys.ArrowDown && player.y < (road.bottom - 110)) {
+                        player.y += player.speed;
+                    }
+                    if (keys.ArrowLeft && player.x > 0) {
+                        player.x -= player.speed;
+                    }
+                    if (keys.ArrowRight && player.x < (road.width - 70)) {  //50 = width of car
+                        player.x += player.speed;
+                    }
+
+
+
+                    car.style.top = player.y + 'px'; //to attach px behind number eg: 44px
+                    car.style.left = player.x + 'px';//to attach px behind number
+
+                    request = window.requestAnimationFrame(gamePlay);//create loop for road animation
+                    //console.log(player.score++);
+                    player.score++;
+                    ps = player.score - 1;
+                    s = ps;
+                    if (player.score >= highest) {
+                        highest = ps;
+                    }
+                    scores.innerHTML = "Your Score:" + ps + "<br><br>" + "Highest Score:" + highest;
+
+
+                }
+
+            }
+
+            ////////////////////////////////////////////////////
+            function Reset() {
+                highest = 0;
+            }
+
+            ////////////////////////////////////////////////
+            function startClock() {
+                timerArea.innerHTML = "&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp        Time Remaining: ".fontcolor("#092A9E").fontsize(5) + timer;
+                if (timer <= 5) {
+                    timerArea.innerHTML = "&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp        Time Remaining: ".fontcolor("#FF0000").fontsize(5) + timer;
+                }
+
+                /////////////////////////////////////////////////////////////////
+                if (timer <= 0) {
+                    showResult();
+                   
+                    check();
+                } else {
+                    timer -= 1;
+                    runningTimer = setTimeout(startClock, 1000);
+                }
+            }
+
+            ///////////////////////////////
+            function start() {
+                // gamearea.classList.remove('hide');
+                callTimer();
+
+                startTimer.classList.remove('hide');
+CarGame.classList.remove('hide');
+
+                scores.classList.remove('hide');
+                startscreen.classList.add('hide');
+                gamearea.innerHTML = "";
+                player.start = true;
+                player.score = 0;
+                request = window.requestAnimationFrame(gamePlay);
+
+                for (x = 0; x < 5; x++) {
+                    let roadline = document.createElement('div');
+                    roadline.setAttribute('class', 'lines');
+                    roadline.y = (x * 150);
+                    roadline.style.top = roadline.y + 'px';
+                    gamearea.appendChild(roadline);
+                }
+
+                let car = document.createElement('div');//way to create element in document
+                car.setAttribute('class', 'car');
+                gamearea.appendChild(car);
+
+                player.x = car.offsetLeft; // give the mentioned dimension
+                player.y = car.offsetTop;
+                // performance(d);
+
+
+                for (x = 0; x < 4; x++) {
+                    let othercar = document.createElement('div');
+                    othercar.setAttribute('class', 'other');
+                    othercar.y = ((x + 1) * 350) * -1;
+                    othercar.style.top = othercar.y + 'px';
+                    othercar.style.left = Math.floor(Math.random() * 350) + 'px';
+                    othercar.style.backgroundColor = randomColor();
+                    gamearea.appendChild(othercar);
+                }
+                setInterval(decrease, 120000)
+                function decrease() {
+                    for (x = 0; x < 1; x++) {
+                        let othercar = document.createElement('div');
+                        othercar.setAttribute('class', 'other');
+                        othercar.y = ((x + 1) * 350) * -1;
+                        othercar.style.top = othercar.y + 'px';
+                        othercar.style.left = Math.floor(Math.random() * 300) + 'px';
+                        othercar.style.backgroundColor = randomColor();
+                        gamearea.appendChild(othercar);
+                    }
+                }
+            }
+
+            //////////////////////////////////////////////// 
+
+            // var correct = "Correct!!!";
+            function againScreen() {
+                startbutton.innerHTML = "CONTINUE";
+                Question_form.classList.add('hide');
+                explanationbox.classList.remove('hide');
+                status.innerHTML = " WELL DONE 👍  &nbsp &nbsp &nbsp 🎉🎉😀😀🧡🧡  &nbsp &nbsp " + "&nbsp &nbsp &nbsp &nbsp CORRECT!!!  ".fontcolor("green");
+                status1.innerHTML = " You are fantastic".fontcolor("#A702F5").fontsize(5) + "<br>  keep learning and enjoy the Game 😀" + " <br> please continue......... "
+        Explaining.innerHTML=questionList.explanation;
+                btn1.onclick = function () {
+                    explanationbox.classList.add('hide');
+                    CarGame.classList.remove('hide');
+                    showResult();
+                    againstartscreen1.classList.remove('hide');
+                    againstartscreen1.addEventListener('click', againstart);
+                }
+                // CarGame.classList.remove('hide');
+                // startscreen.classList.remove('hide');
+
+                // startscreen.addEventListener('click', againstart);
+            }
+
+
+
+
+            function againstart() {
+
+                Question_form.classList.add('hide');
+                CarGame.classList.remove('hide');
+                 startscreen.classList.add('hide');
+                window.cancelAnimationFrame(request);
+                againstartscreen.classList.add('hide');
+                againstartscreen1.classList.add('hide');
+                gamearea.innerHTML = "";
+
+                player.start = true;
+
+                player.score = s;
+
+                window.requestAnimationFrame(resumeGame);
+
+                for (x = 0; x < 6; x++) {
+                    let roadline = document.createElement('div');
+                    roadline.setAttribute('class', 'lines');
+                    roadline.y = (x * 150);
+                    roadline.style.top = roadline.y + 'px';
+                    gamearea.appendChild(roadline);
+                }
+
+                let car = document.createElement('div');//way to create element in document
+                car.setAttribute('class', 'car');
+                gamearea.appendChild(car);
+
+                player.x = car.offsetLeft; // give the mentioned dimension
+                player.y = car.offsetTop;
+
+
+                for (x = 0; x < 4; x++) {
+                    let othercar = document.createElement('div');
+                    othercar.setAttribute('class', 'other');
+                    othercar.y = ((x + 1) * 350) * -1;
+                    othercar.style.top = othercar.y + 'px';
+                    othercar.style.left = Math.floor(Math.random() * 350) + 'px';
+                    othercar.style.backgroundColor = randomColor();
+                    gamearea.appendChild(othercar);
+                }
+
+
+
+
+
+            }
+////////////////////////////////////////////
+
+            function randomColor() {
+                function c() {
+                    let hex = Math.floor(Math.random() * 256).toString(16); //to convert decimal to hex
+                    return ("0" + String(hex)).substr(-2);
+                }
+                return "#" + c() + c() + c();
+            }
+
+/////////////////////////////////////////////////////////
+
+
+
+function showResult(){
+
+if(timer<=0){
+   
+    
+    Question_form.classList.add('hide');
+    explanationbox.classList.add('hide');
+        showResultpage.classList.remove('hide');
+        document.querySelector('.score1').innerHTML="TIME OUT!!! ⏲    &nbsp; &nbsp;   😮😮🖤🖤   You lose your Target Unfortunately  &nbsp;&nbsp; <br> Play again____All THE BEST👍 ".fontcolor("red");
+        CarGame.classList.add('hide');
+    startTimer.classList.add('hide');
+       gamearea.classList.add('hide');
+        highest = 0;
+             timer = 30;
+             clock = 00;
+             clearInterval(timeref);
+            
+showname.innerHTML= "&nbsp;&nbsp;&nbsp;"+getname;
+Game_score.innerHTML= "&nbsp;&nbsp;&nbsp;"+s;
+quiz_marks.innerHTML="&nbsp;&nbsp;&nbsp;"+mark+"/"+o;
+TIMING.innerHTML= " ⏲ : &nbsp;&nbsp;&nbsp; " + minutes + ":" +seconds;
+let P = (mark/o)*100;
+if(P>=80){
+    FeedBack.innerHTML="&nbsp;&nbsp;EXCELLENT😀"; 
+}else if(P>=60){
+    FeedBack.innerHTML="&nbsp;&nbsp;VERY GOOD😃"; 
+}else if(P>=40){
+    FeedBack.innerHTML="&nbsp;&nbsp;GOOD🙂"; 
+}else if(P>=20){
+    FeedBack.innerHTML="&nbsp;&nbsp;NICE🙂"; 
+}else if(P>0){
+    FeedBack.innerHTML="&nbsp;POOR(Need to Work Hard)"; 
+}else{
+    FeedBack.innerHTML="VERY POOR (Please Play again)"; 
+}
+playerB();
+
+}
+
+    if(T==0){
+        explanationbox.classList.add('hide');
+        showResultpage.classList.remove('hide');
+        CarGame.classList.add('hide');
+    startTimer.classList.add('hide');
+       gamearea.classList.add('hide');
+        highest = 0;
+             timer = 30;
+             clock = 00;
+             clearInterval(timeref);
+            
+             showname.innerHTML= "&nbsp;&nbsp;&nbsp;"+getname;
+Game_score.innerHTML= "&nbsp;&nbsp;&nbsp;"+s;
+quiz_marks.innerHTML="&nbsp;&nbsp;&nbsp;"+mark+"/"+o;
+TIMING.innerHTML= " ⏲ : &nbsp;&nbsp;&nbsp; " + minutes + ":" +seconds;
+let P = (mark/o)*100;
+if(P>=80){
+    FeedBack.innerHTML="&nbsp;&nbsp;EXCELLENT😀"; 
+}else if(P>=60){
+    FeedBack.innerHTML="&nbsp;&nbsp;VERY GOOD😃"; 
+}else if(P>=40){
+    FeedBack.innerHTML="&nbsp;&nbsp;GOOD🙂"; 
+}else if(P>=20){
+    FeedBack.innerHTML="&nbsp;&nbsp;NICE🙂"; 
+}else if(P>0){
+    FeedBack.innerHTML="&nbsp;POOR(Need to Work Hard)"; 
+}else{
+    FeedBack.innerHTML="VERY POOR (Please Play again)"; 
+}
+playerB();
+
+             
+    }
+    
+}
+
+
+///////////////////////////////////////////////
+            const quizdb = [
+                {
+                    question: "Which of the following element is used as a thermocouple in nuclear reactor?",
+                    answers: [
+                        "Boron",
+                        "Platinum",
+                        "Copper",
+                        "Iron"],
+                    ans: "ans1",
+                    explanation: " Nuclear reactors are places where a large amount of heat is liberated, here boron is used as thermocouple element as it can measure temperature above 15000c.".fontcolor("purple").fontsize(5)
+
+
+
+                },
+                {
+                    question: "________ can be used as a replacement for thermocouple lead?",
+                    answers: [
+                        "Replacement lead",
+                        "Replica",
+                        "Compensation lead",
+                        "None ",
+
+                    ], ans: "ans3",
+                    explanation: "Compensating leads are of the same materials as thermocouple leads and can be used as a replacement. ".fontcolor("purple").fontsize(5)
+
+                },
+                {
+                    question: "Thermocouple is a _________________?",
+                    answers: [
+                        "Primary Transducer",
+                        "secondary Transducer", "Tertiary Transducer", "none of the above"
+
+                    ], ans: "ans1",
+                    explanation: "Thermocouple is a device which converts thermal energy to electrical energy and it can be treated as a primary device.".fontcolor("purple").fontsize(5)
+                },
+                {
+                    question: "The Operation of Thermocouple is given by__________?",
+                    answers: [
+                        "Peltier  effect ",
+                        "Seeback effect",
+                        "Thomson effect",
+                        "All of the above"],
+                    ans: "ans2",
+                    explanation: " A thermocouple Transducer that coverts heat directly into electricity according to the see back effect.".fontcolor("purple").fontsize(5)
+                },
+                {
+                    question: "Reference junction compensation is necessary in thermocouple-based temperature instruments because:?",
+                    answers: [
+                        "Copper extension wire has a tendency to corrode",
+                        "Thermocouples are inherently nonlinear",
+                        "The reference junction generates a temperature-dependent voltage",
+                        "The junction’s electrical resistance varies with temperature " ],
+                    ans: "ans1",
+                    explanation: " Reference junction compensation is necessary in thermocouple-based temperature instruments because Copper extension wire has a tendency to corrode.".fontcolor("purple").fontsize(5)
+                },
+                {
+                    question: "An instrument that can be used at a distance, which allows scientist to work the instrument at a safer place is called____________?",
+                    answers: [
+                        "Thermocouple thermometer",
+                        "Manometer",
+                        "Barometer",
+                        "Infrared thermometer"],
+                    ans: "ans1",
+                    explanation: " Thermocouple Thermometer can be used at a distance and allows scientist to work the instrument at a safer place.".fontcolor("purple").fontsize(5)
+                },
+                {
+                    question: "Thermocouple cannot be used to measure____________?",
+                    answers: [
+                        "Temperature of a Gas",
+                        "Temperature of a Liquid",
+                        "IR radiation",
+                        "None of the mentioned"],
+                    ans: "ans4",
+                    explanation: " Infra-Red radiation is characterized by temperature and thermocouple can be used to measure temperature Immersion type thermocouple can be used to measure temperature of liquid, in which thermocouple is immersed in liquid.".fontcolor("purple").fontsize(5)
+                },
+                {
+                    question: "strain gauge is a passive transducer and is employed for converting _____?",
+                    answers: [
+                        "Mechanical displacement into a change of resistance ",
+                        "Pressure into a change of resistance",
+                        "Force into a displacement ",
+                        "Pressure into displacement"],
+                    ans: "ans1",
+                    explanation: " Strain Gauge is a passive transducer that converts a mechanical elongation or displacement produced due to a force into its corresponding change in resistance R, inductance L, or capacitance C. A strain gauge is basically used to measure the strain in a work piece.".fontcolor("purple").fontsize(5)
+                },
+                {
+                    question: "Thermistors which have a very high temperature co-efficient of resistivity belong to the class of solid called________________?",
+                    answers: [
+                        "Dielectrics",
+                        "Insulators",
+                        "Semiconductors",
+                        "Conductors"],
+                    ans: "ans3",
+                    explanation: " : Thermistors which have a very high temperature co-efficient of resistivity belong to the class of solid called Semiconductor.".fontcolor("purple").fontsize(5)
+                }, {
+                    question: "Relation between temperature and resistance of a conductor is ________?",
+                    answers: [
+                        "Rt = Rref [1+t]",
+                        "Rt = Rref [1+α∆t]",
+                        "Rt = Rref [1-αt]",
+                        "Rt = Rref [1-t]"],
+                    ans: "ans2",
+                    explanation: " The relationship between temperature and resistance of a conductor is given by <br> Rt = Rref [1+α∆t] where, <br> •	Rt is the resistance of the conductor at t°C.<br> •	Rref is the resistance of the conductor at reference temperature <br>• 	α is the temperature coefficient of resistance <br>•∆t is the difference between the temperature being measured and the reference temperature. ".fontcolor("purple").fontsize(5)
+                }, {
+                    question: "In the electric arc furnace process what kind of thermocouple should be used? ",
+                    answers: [
+                        "Type B",
+                        "Type S",
+                        "Type R",
+                        "Type K."],
+                    ans: "ans2",
+                    explanation: "Type S Thermocouples are regularly used in the electric arc furnace process to accurately measure the temperature of steel before tapping.".fontcolor("purple").fontsize(5)
+                },{ question: "A 10kΩ (at 25°C) NTC thermistor has a B value of 3455 between the temperature range of 25oC and 100oC. Calculate its resistive value at 100oC?",
+                    answers: [
+                        "R(100°C)=973 Ω",
+                        "R(100°C)=974 Ω",
+                        "R(100°C)=975 Ω",
+                        "R(100°C)=976 Ω  B(T1/T2)"],
+                    ans: "ans1",
+                    explanation: "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= q1.jpeg  margin-left=3rem  width= 400px  height= 180px> <br> Where: <br>•   T1 is the first temperature point in Kelvin <br>• T2 is the second temperature point in Kelvin <br> •    R1 is the thermistors resistance at temperature T1 in Ohms <br> • R2 is the thermistors resistance at temperature T2 in Ohms.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which sensor is LM35?",
+                    answers: [
+                        "Pressure sensor",
+                        "Humidity sensor",
+                        "Temperature sensor",
+                        "Touch sensor"],
+                    ans: "ans3",
+                    explanation: " LM35 is a temperature sensor which has 3 legs(Vcc, Vout, GND).".fontcolor("purple").fontsize(5)
+                 },{ question: "How many types of thermistors are there:",
+                    answers: [
+                        "One",
+                        "Two",
+                        "Three",
+                        "Four"],
+                    ans: "ans2",
+                    explanation: " Thermistors are of two types:<br>•NTC thermistors: Thermistor whose resistance decreases with increasing temperature <br>•PTC thermistors: Thermistor whose resistance increases with increasing temperature ".fontcolor("purple").fontsize(5)
+                 },{ question: " Resistance temperature detector is _______?",
+                    answers: [
+                        "a electrical transducer ",
+                        "a mechanical transducer",
+                        "a chemical transducer ",
+                        "a physical transducer"],
+                    ans: "ans1",
+                    explanation: " Resistance temperature detector is an electrical transducer. It is used for measuring the variation in temperature. It is also known as a resistance thermometer.".fontcolor("purple").fontsize(5)
+                 },{ question: "Strain is a _______",
+                    answers: [
+                        "fractional change in volume",
+                        "fractional change in area",
+                        "fractional change in length",
+                        "fractional change in height"],
+                    ans: "ans3",
+                    explanation: " Strain is defined as the fractional change in length of a body. A change in resistance of the element is reflected in the form of strain of the gauge as well as the element.".fontcolor("purple").fontsize(5)
+                 },{ question: "Change in resistance in a thermistor is measured using a ________?",
+                    answers: [
+                        "Anderson’s bridge",
+                        "Wheatstone’s bridge",
+                        "Hay’s bridge",
+                        "Maxwell’s bridge"],
+                    ans: "ans2",
+                    explanation: "  The change in resistance in a thermistor is measured using a Wheatstone’s bridge. It is used for measurement of resistance in the range of -100°C to +200°C.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which sensor is linear and low accuracy?",
+                    answers: [
+                        "Thermistor",
+                        "Resistance Thermometer",
+                        "Thermocouple",
+                        "Semiconductor based sensor"],
+                    ans: "ans4",
+                    explanation: "  A semiconductor based temperature sensor is placed on Integrated Circuits. They are linear but have the lowest accuracy.".fontcolor("purple").fontsize(5)
+                 },{ question: "Commonly used elements for wire strain gauges are __________?",
+                    answers: [
+                        "nickel and copper",
+                        "nickel and gold",
+                        "gold and brass",
+                        "silver and aluminium"],
+                    ans: "ans1",
+                    explanation: " Nickel and copper are the most commonly used elements for wire strain gauges. They comprise of 45 % of Nickel and 55 % of Copper. They exhibit a high value of specific resistance.".fontcolor("purple").fontsize(5)
+                 },{ question: "Perfect instrument for measuring temperature of lava is ?",
+                    answers: [
+                        "RTD",
+                        "Thermocouple ",
+                        "Thermistor  ",
+                        "All of the above"],
+                    ans: "ans2",
+                    explanation: " Thermocouple are suitable for measuring over a large temperature range. (Upto 2300°C)".fontcolor("purple").fontsize(5)
+                 },{ question: "_______ measures temperature by correlating the resistance of the RTD with temperature.",
+                    answers: [
+                        "Thermistor",
+                        "Resistance Thermometer",
+                        "Thermo couple",
+                        "Semiconductor based sensor"],
+                    ans: "ans2",
+                    explanation: " An RTD, measures temperature by correlating the resistance of the RTD with temperature. An RTD consists of a film or, for greater accuracy, a wire wrapped around a ceramic or glass core.".fontcolor("purple").fontsize(5)
+                 },{ question: "Why we are usingcompensation for a thermocouple?",
+                    answers: [
+                        "to decrease temperature sensitivity",
+                        "to increase voltage output",
+                        "to cancel unwanted voltage output of a thermocouple",
+                        "used for high-temperature circuits"],
+                    ans: "ans3",
+                    explanation: "Compensation for a thermocouple is used to cancel unwanted voltage output of a thermocouple.".fontcolor("purple").fontsize(5)
+                 },{ question: "For RTD, Platinum is used for industrial applications because __________?",
+                    answers: [
+                        "it gives accurate measurements ",
+                        "It is reproducible   ",
+                        "it can measurement of temperatures of about 1000 K   ",
+                        "all of above"],
+                    ans: "ans4",
+                    explanation: " Platinum is used in the construction of RTDs because it is stable, provides repeatable and measurable results and has a broad temperature range.".fontcolor("purple").fontsize(5)
+                 },{ question: "A ________ is thermally sensitive resistor that exhibits a large change in resistance?",
+                    answers: [
+                        "Thermistor",
+                        "Resistance Thermometer",
+                        "Thermo couple",
+                        "Semiconductor based sensor"],
+                    ans: "ans1",
+                    explanation: "  A thermistor is a thermally sensitive resistor that exhibits a large, predictable, and precise change in resistance correlated to variations in temperature.".fontcolor("purple").fontsize(5)
+                 },{ question: "Thermocouple generates output voltage according to ___",
+                    answers: [
+                        "Circuit parameters",
+                        "Humidity",
+                        "Temperature",
+                        "Voltage"],
+                    ans: "ans3",
+                    explanation: " Thermocouple is a device which is capable of producing output voltage according to input temperature.".fontcolor("purple").fontsize(5)
+                 },{ question: "In RTD, a temperature transmitter in the form of a Wheatstone bridge is generally used. Why ?",
+                    answers: [
+                        "To detect the small variations of resistance of the RTD",
+                        "For Accuracy",
+                        "For Linearity",
+                        "None of the above"],
+                    ans: "ans1",
+                    explanation: " To detect the small variations of resistance of the RTD, a temperature transmitter in the form of a Wheatstone bridge is generally used.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which type of temperature sensor is placed in Integrated Circuits?",
+                    answers: [
+                        "Thermistor",
+                        "Resistance Thermometer",
+                        "Thermocouple",
+                        "Semiconductor based sensor"],
+                    ans: "ans4",
+                    explanation: "  A semiconductor based temperature sensor is placed on Integrated Circuits. They are linear but have the lowest accuracy".fontcolor("purple").fontsize(5)
+                 },{ question: "Proper functioning of a strain gauge depends on __________",
+                    answers: [
+                        "strain",
+                        "stress",
+                        "bonding",
+                        "length of wire"],
+                    ans: "ans3",
+                    explanation: "A strain gauge works properly only if the bonding material used is durable and keeps the gauge together to the surface of the material that is being tested".fontcolor("purple").fontsize(5)
+                 },{ question: "Which of the following is correct for thermistors:",
+                    answers: [
+                        "A thermistor is a resistance thermometer",
+                        "Resistance of NTC thermistor increases with increasing temperature",
+                        "Resistance of PTC thermistor decreases with increasing temperature",
+                        "Both 2 & 3"],
+                    ans: "ans1",
+                    explanation: " A thermistor is a resistance thermometer whose resistance is dependent on the temperature. The term thermistor is a combination of thermal and resistor.".fontcolor("purple").fontsize(5)
+                 },{ question: "Thermistors are fabricated from:?",
+                    answers: [
+                        "Insulator materials",
+                        "Conductor materials",
+                        "Semiconductors",
+                        "None of above"],
+                    ans: "ans3",
+                    explanation: " Generally thermistors are fabricated from semiconductors.".fontcolor("purple").fontsize(5)
+                 },{ question: "Why we use 4 legs for RTD?",
+                    answers: [
+                        "Easy to install",
+                        "cheap",
+                        "more accurate",
+                        "can measure very high temperature"],
+                    ans: "ans3",
+                    explanation: " For accuracy we use 4 leg for RTD.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which of the following element is used as a thermocouple in nuclear reactor?",
+                    answers: [
+                        "Boron",
+                        "Platinum",
+                        "Copper",
+                        "Iron"],
+                    ans: "ans1",
+                    explanation: " Nuclear reactors are places where a large amount of heat is liberated, here boron is used as thermocouple element as it can measure temperature above 15000c.".fontcolor("purple").fontsize(5)
+                 },{ question: "______ can be used as a replacement for thermocouple lead.",
+                    answers: [
+                        "Replacement lead",
+                        "Replica",
+                        "Compensation lead",
+                        "None "],
+                    ans: "ans3",
+                    explanation: "Compensating leads are of the same materials as thermocouple leads and can be used as a replacement.".fontcolor("purple").fontsize(5)
+                 },{ question: "The output of thermocouple is in the range of _________?",
+                    answers: [
+                        "Volts",
+                        "Millivolts",
+                        "Amperes",
+                        "Milliamperes"],
+                    ans: "ans2",
+                    explanation: " The output range of all thermocouple types falls between -10 mV and 80 mV.".fontcolor("purple").fontsize(5)
+                 },{ question: "Thermistor has a resistance of ________?",
+                    answers: [
+                        "250Ω to 500kΩ",
+                        "50 Ω to 10k Ω",
+                        "1 Ω to 1k Ω",
+                        "100 Ω to 100k Ω"],
+                    ans: "ans4",
+                    explanation: " Thermistor has a resistance range of 100 ῼ to 100 kῼ. Thermistor consists of a mixture of metallic oxides of manganese, nickel, cobalt, copper, iron and uranium.".fontcolor("purple").fontsize(5)
+                 },{ question: "What device is similar to an RTD but has a negative temperature coefficient?",
+                    answers: [
+                        "Strain gauge",
+                        "Thermistor ",
+                        "Negative type RTD",
+                        "Thermocouple "],
+                    ans: "ans2",
+                    explanation: " The Thermistor and the RTD both are the temperatures measuring device. But Thermistor has both PTC and NTC, whereas RTD has only positive temperature coefficient.".fontcolor("purple").fontsize(5)
+                 },{ question: "Temperature sensing can be achieved by the use of",
+                    answers: [
+                        "Thermocouples ",
+                        "RTDs",
+                        "Thermistors ",
+                        "All of the above"],
+                    ans: "ans4",
+                    explanation: " Temperature sensing can be achieved by the use of thermocouples RTDs and thermistor.".fontcolor("purple").fontsize(5)
+                 },{ question: "Thermistor is a transducer. Its temperature coefficient is",
+                    answers: [
+                        "Negative",
+                        "Positive",
+                        "Zero",
+                        "None of these"],
+                    ans: "ans1",
+                    explanation: " Temperature coefficient of  Thermistor as a transducer is negative.".fontcolor("purple").fontsize(5)
+                 },{ question: "Function of transducer is to convert?",
+                    answers: [
+                        "Electrical signal into non electrical quantity",
+                        "Non electrical quantity into electrical signal",
+                        "Electrical signal into mechanical quantity",
+                        "All of these"],
+                    ans: "ans2",
+                    explanation: " A transducer converts some sort of energy to sound (source) or converts sound energy(receiver) to an electrical signal.".fontcolor("purple").fontsize(5)
+                 },{ question: "Strain gauge is a_____?",
+                    answers: [
+                        "Active device and converts mechanical displacement into a change of resistance",
+                        "Passive device and converts electrical displacement into a change of resistance",
+                        "Passive device and converts mechanical displacement into a change of resistance",
+                        "Active device and converts electrical displacement into a change of resistance."],
+                    ans: "ans3",
+                    explanation: " Strain Gauge is a passive transducer that converts a mechanical elongation or displacement produced due to a force into its corresponding change in resistance R, inductance L, or capacitance C.".fontcolor("purple").fontsize(5)
+                 },{ question: "If at one end, the two wires made of different metals are joined together then a voltage will get produced between the two wires due to difference of temp between the two ends of wires. This effect is observed in?",
+                    answers: [
+                        "Thermocouples",
+                        "Thermistors",
+                        "RTD",
+                        "Ultrasonics"],
+                    ans: "ans1",
+                    explanation: " If at one end, the two wires made of different metals are joined together then a voltage will get produced between the two wires due to difference of temp between the two ends of wires. This effect is observed in thermocouple.".fontcolor("purple").fontsize(5)
+                 },{ question: "The equation of the thermocouple thermometer is?",
+                    answers: [
+                        "e.m.f ɛ 𝞪 volume",
+                        "e.m.f ɛ 𝞪 area",
+                        "e.m.f ɛ 𝞪 temperature difference ",
+                        "e.m.f ɛ 𝞪 boiling point"],
+                    ans: "ans3",
+                    explanation: " E.M.F  of a thermocouple thermometer is directly proportional to temperature difference.".fontcolor("purple").fontsize(5)
+                 },{ question: "Thermistor can be considered as which type of Resistor",
+                    answers: [
+                        "Laser resistor",
+                        "Photo resistor",
+                        "Thermal resistor",
+                        "None of these"],
+                    ans: "ans3",
+                    explanation: " The thermistor can be regarded as a resistance thermometer whose resistance is dependent on the temperature.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which bridge is utilized in signal conditioning circuits for balancing purpose?",
+                    answers: [
+                        "Maxwell Bridge",
+                        "Wheatstone Bridge",
+                        "Wein Bridge",
+                        "Kelvin Bridge"],
+                    ans: "ans2",
+                    explanation: " Wheatstone bridge used for balancing purpose. ".fontcolor("purple").fontsize(5)
+                 },{ question: "In NTC thermistor on increasing temperature, the  resistance?",
+                    answers: [
+                        "Increase",
+                        "Remain constant",
+                        "Decreases",
+                        "Behaves abruptly"],
+                    ans: "ans3",
+                    explanation: "In NTC with increasing temperature resistance decreases.".fontcolor("purple").fontsize(5)
+                 },{ question: "which of the following is a practical application of thermistors:",
+                    answers: [
+                        "Fire alarm",
+                        "Automotives",
+                        "Food handling and processing",
+                        "All of these"],
+                    ans: "ans4",
+                    explanation: " A thermistor finds its application in fire alarm applications, Automotives, and Food handling and processing. Alongside this thermistors are used in industrial electronics.".fontcolor("purple").fontsize(5)
+                 },{ question: "The formula for gauge factor is:?",
+                    answers: [
+                        "ΔR * RG * ε",
+                        "(ΔR/RG)/ ε",
+                        "(ΔR/RG)*ε",
+                        "(ΔR + RG)/ ε"],
+                    ans: "ans2",
+                    explanation: " (ΔR/RG)/ ε where ΔR is the change in resistance caused by strain RG is the resistance of the undeformed gauge ε is strain ".fontcolor("purple").fontsize(5)
+                 },{ question: "To detect very small changes in resistance strain gauges are configured with:?",
+                    answers: [
+                        "Wheatstone bridge",
+                        "Maxwell’s Bridge",
+                        "Hay’s Bridge",
+                        "Anderson Bridge"],
+                    ans: "ans1",
+                    explanation: "To detect very small changes in resistance strain gauges are configured with Wheatstone bridges.".fontcolor("purple").fontsize(5)
+                 },{ question: "The thermistor whose resistance increase by increasing temperature:?",
+                    answers: [
+                        "NTC Thermistor",
+                        "PTC Thermistor",
+                        "None of these",
+                        "Any of these"],
+                    ans: "ans2",
+                    explanation: " In PTC with increasing temperature resistance increases.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which of the thermocouple one will choose to measure the temperature of 500°C?",
+                    answers: [
+                        "Chromel-Alumel (Cr Al)",
+                        "Iron Constantan (Fe K)",
+                        "Platicum-Platinum Rhydium (Pt Pt Rh)",
+                        "None of the above"],
+                    ans: "ans2",
+                    explanation: " 1)Chromel-Alumel(type K) is used to measure temperature upto 1100°C.<br>2)Iron Constantan (type J) is used to measure temperature upto 650°C.<br>3)Platicum-Platinum Rhydium is used to measure temperature upto 1650°C<br> Therefore, to measure low temperature as 500°C, we can use Iron Constantan (Fe K) thermocouple.".fontcolor("purple").fontsize(5)
+                 },{ question: "Which of the following is not a characteristic of an ideal transducer?",
+                    answers: [
+                        "High dynamic range",
+                        "Low linearity",
+                        "High repeatability",
+                        "Low noise"],
+                    ans: "ans2",
+                    explanation: " An ideal transducer should show high linearity. A linear system should produce exact output according to input.".fontcolor("purple").fontsize(5)
+                 },{ question: "When the reference junction is the same temperature as the measurement junction in a thermocouple circuit, the output voltage (measured by the sensing instrument) is:_______________",
+                    answers: [
+                        "Zero",
+                        "AC instead of DC",
+                        "Reverse polarity",
+                        "Very high"],
+                    ans: "ans1",
+                    explanation: "When the reference junction is the same temperature as the measurement junction in a thermocouple circuit, the output voltage (measured by the sensing instrument) is zero.".fontcolor("purple").fontsize(5) } 
+                    ];
+                    
+            var questionCount = Math.ceil(Math.random() * 50);
+            let score = 0;
+            let questionList = quizdb[questionCount];
+
+            
+            const loadquestion = () => {
+                startClock();
+                console.log("helloaakas");
+                player.start = false;
+                CarGame.classList.add('hide');
+
+                Question_form.classList.remove('hide');
+
+                question.innerHTML = questionList.question;
+                option1.innerHTML = questionList.answers[0];
+                option2.innerHTML = questionList.answers[1];
+                option3.innerHTML = questionList.answers[2];
+                option4.innerHTML = questionList.answers[3];
+            };
+            //  loadquestion();
+
+
+
+            const getCheckedAnswer = () => {
+                let answer;
+                answers.forEach((currentElement) => {
+                    if (currentElement.checked) {
+                        answer = currentElement.id;
+                    }
+                });
+                return answer;
+            };
+
+            const checkedselect = () => {
+
+                // if(document.getElementById('ans1').checked){
+                //     getCheckedAnswer();
+                // }else if(document.getElementById('ans2').checked){
+                //     getCheckedAnswer();
+                // }else if(document.getElementById('ans3').checked){
+                //     getCheckedAnswer();
+                // }else if(document.getElementById('ans4').checked){
+                //     getCheckedAnswer();
+                // }else{
+                // alert("hII");
+                // checkedselect();
+                // }
+
+
+
+
+
+            }
+
+            // getCheckedAnswer();
+            submit.addEventListener('click', () => {
+                clearInterval(runningTimer);
+
+                check();
+     
+                // timer = givequiztime();
+                const checkedAnswer = getCheckedAnswer();
+                if (checkedAnswer == quizdb[questionCount].ans) {
+                    //  score++;
+                    // questionCount++;
+                    // questionList = quizdb[questionCount];
+                    mark++;
+                    againScreen();
+
+
+                } else {
+                    // questionCount++;
+                    // questionList = quizdb[questionCount];
+                    SZ = 0;
+                    endGame();
+                } questionCount = Math.ceil(Math.random() * 50);
+                questionList = quizdb[questionCount];//questionCount++;
+                // questionList = quizdb[questionCount];
+                // console.log(questionCount);
+                // if (questionCount < quizdb.length) {
+                //     loadquestion();
+                // } else {
+                //     console.log("hello");
+
+                // }
+
+
+            });
+
+
+        </script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+         crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+         crossorigin="anonymous"></script>
+</body>
+
+</html>
